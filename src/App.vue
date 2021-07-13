@@ -1,14 +1,17 @@
 <template>
+  <UserInput />
   <ShowState />
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import ShowState from "./components/ShowState.vue";
+import UserInput from "./components/UserInput.vue";
 
 @Options({
   components: {
     ShowState,
+    UserInput
   },
 })
 export default class App extends Vue {}

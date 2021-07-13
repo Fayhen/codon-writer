@@ -4,9 +4,13 @@
       This is a development component intended to render the current stored
       state.
     </h3>
+    <h1>Raw user input:</h1>
+    <p> {{ state.userInput }}</p>
+    <h1>Parsed user input:</h1>
+    <p> {{ state.parsedInput }}</p>
     <h1>Natural amino acids</h1>
     <ul>
-      <li v-for="aminoacid in state.classicGenetics" :key="aminoacid.name">
+      <li v-for="aminoacid in state.commonAminoacids" :key="aminoacid.name">
         <strong>{{ aminoacid.name }}</strong>
         <p>{{ aminoacid.abbreviation }}</p>
         <p>{{ aminoacid.codons }}</p>
@@ -72,9 +76,12 @@
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
+import { Vue, Options } from "vue-class-component";
 import state from "@/store/state";
 
+@Options({
+  name: "ShowState",
+})
 export default class ShowState extends Vue {
   state = state;
 }
